@@ -35,12 +35,14 @@
     <div class="container-fluid">
       <div class="row align-items-center">
         <div id="logo" class="col-auto">
-          <a href="#" class="logo-text">SPNGROUP</a>
+          <a href="#" class="logo-link">
+            <img src="img/spn.png" alt="SPN Group Logo" class="logo-img">
+          </a>
         </div>
 
         <nav id="nav-menu-container" class="col-auto ms-auto">
           <ul class="nav-menu">
-            <li><a href="#about">About Us</a></li>
+            <li><a href="#company">About Us</a></li>
             <li><a href="#services">Our Services</a></li>
             <li><a href="#product">Product</a></li>
             <li><a href="#contact">Reach Us</a></li>
@@ -59,17 +61,19 @@
   ============================-->
   <section id="hero">
     <div class="hero-content">
-      <h1>YOUR TRUSTED<br>FUEL SUPPLY</h1>
-      
+      <h1 style="opacity: 0;">YOUR TRUSTED<br>FUEL SUPPLY</h1>
+
       <div class="hero-buttons">
-        <button class="btn-hero btn-explore" onclick="document.getElementById('company').scrollIntoView({behavior: 'smooth'})">
+        <button class="btn-hero btn-explore"
+          onclick="document.getElementById('company').scrollIntoView({behavior: 'smooth'})">
           Explore More
         </button>
       </div>
 
       <div class="hero-footer">
         <a href="https://wa.me/6281212864666" class="btn-contact" id="contactBtn" target="_blank">Contact us</a>
-        <a href="https://www.instagram.com/spngroupidn?igsh=N2Y0aWRpN3pkN3Z3" class="btn-instagram" id="instagramBtn" target="_blank">
+        <a href="https://www.instagram.com/spngroupidn?igsh=N2Y0aWRpN3pkN3Z3" class="btn-instagram" id="instagramBtn"
+          target="_blank">
           Instagram
         </a>
       </div>
@@ -92,9 +96,9 @@
         <div class="row">
           <div class="col-lg-12">
             <p class="company-description">
-              SPN Group merupakan kelompok usaha yang berpengalaman dan terpercaya dalam 
-              bidang niaga migas di Indonesia. Kami telah membangun jaringan bisnis yang kuat 
-              dan terintegrasi, melayani berbagai sektor industri, swasta maupun pemerintahan, di 
+              SPN Group merupakan kelompok usaha yang berpengalaman dan terpercaya dalam
+              bidang niaga migas di Indonesia. Kami telah membangun jaringan bisnis yang kuat
+              dan terintegrasi, melayani berbagai sektor industri, swasta maupun pemerintahan, di
               seluruh wilayah nasional.
             </p>
           </div>
@@ -102,7 +106,7 @@
 
         <!-- Stat Cards Section -->
         <div class="row stat-cards-container">
-          <div class="col-md-4">
+          <div class="col-lg-4">
             <div class="stat-card stat-card-blue">
               <div class="stat-number">65+</div>
               <div class="stat-label">Our Customers</div>
@@ -110,14 +114,14 @@
             </div>
           </div>
 
-          <div class="col-md-4">
+          <div class="col-lg-4">
             <div class="stat-card stat-card-blue">
               <div class="stat-label-large">Operational Coverage</div>
               <div class="stat-description">Serving Multiple Regions Nationwide</div>
             </div>
           </div>
 
-          <div class="col-md-4">
+          <div class="col-lg-4">
             <div class="stat-card stat-card-gray">
               <div class="stat-number">120+</div>
               <div class="stat-label">Completed Projects</div>
@@ -161,14 +165,14 @@
 
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
-  
+
   <script>
     // Set placeholder URLs for buttons (user will update these later)
     document.getElementById('contactBtn').href = '#'; // Will be updated with actual URL
     document.getElementById('instagramBtn').href = '#'; // Will be updated with actual URL
-    
+
     // Mobile nav toggle
-    document.getElementById('mobile-nav-toggle').addEventListener('click', function() {
+    document.getElementById('mobile-nav-toggle').addEventListener('click', function () {
       document.body.classList.toggle('mobile-nav-active');
     });
   </script>
