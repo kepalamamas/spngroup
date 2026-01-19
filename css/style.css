@@ -41,7 +41,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Raleway", sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 400;
   margin: 0 0 20px 0;
   padding: 0;
@@ -210,10 +210,11 @@ body.mobile-nav-active .nav-menu li a {
   background-position: center;
   background-attachment: fixed;
   display: flex;
-  align-items: center;
+  align-items: end;
   justify-content: center;
   position: relative;
   margin-top: 80px;
+  padding-bottom: 80px;
   overflow: hidden;
 }
 
@@ -237,8 +238,8 @@ body.mobile-nav-active .nav-menu li a {
   z-index: 2;
   text-align: center;
   color: #fff;
-  max-width: 800px;
   padding: 40px;
+  width: 100vw;
 }
 
 .hero-content h1 {
@@ -269,7 +270,7 @@ body.mobile-nav-active .nav-menu li a {
 .btn-hero {
   background: rgba(255, 255, 255, 0.2);
   border: 2px solid #fff;
-  color: black;
+  color: #fff;
   padding: 14px 40px;
   font-size: 16px;
   font-weight: 600;
@@ -296,7 +297,6 @@ body.mobile-nav-active .nav-menu li a {
   justify-content: space-between;
   align-items: center;
   padding: 0 40px;
-  max-width: 800px;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -305,7 +305,7 @@ body.mobile-nav-active .nav-menu li a {
 .btn-instagram {
   background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  color: black;
+  color: #fff;
   padding: 10px 20px;
   border-radius: 25px;
   font-size: 14px;
@@ -349,7 +349,6 @@ body.mobile-nav-active .nav-menu li a {
 
 .company-header {
   text-align: center;
-  margin-bottom: 50px;
 }
 
 .company-title {
@@ -629,10 +628,6 @@ body.mobile-nav-active .nav-menu li a {
   .stat-card {
     padding: 20px;
     min-height: 150px;
-  }
-
-  .stat-number {
-    font-size: 32px;
   }
 
   .stat-label,
