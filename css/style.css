@@ -16,7 +16,7 @@ body {
 }
 
 a {
-  color: #4CAF88;
+  color: #004AAD;
   transition: 0.5s;
   text-decoration: none;
 }
@@ -24,7 +24,7 @@ a {
 a:hover,
 a:active,
 a:focus {
-  color: #3a9970;
+  color: #004AAD;
   outline: none;
   text-decoration: none;
 }
@@ -109,6 +109,34 @@ h2 {
   align-items: center;
 }
 
+body.mobile-nav-active #nav-menu-container {
+  display: block !important;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  background: #ffffff;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 998;
+}
+
+body.mobile-nav-active .nav-menu {
+  display: flex !important;
+  flex-direction: column;
+  gap: 15px;
+  padding: 0;
+}
+
+body.mobile-nav-active .nav-menu li {
+  display: list-item !important;
+}
+
+body.mobile-nav-active .nav-menu li a {
+  display: block !important;
+  padding: 10px 0;
+}
+
 .nav-menu {
   list-style: none;
   display: flex;
@@ -118,7 +146,7 @@ h2 {
 }
 
 .nav-menu li a {
-  color: #1e5a9b;
+  color: #004AAD;
   font-weight: 600;
   font-size: 14px;
   transition: color 0.3s ease;
@@ -127,7 +155,7 @@ h2 {
 }
 
 .nav-menu li a:hover {
-  color: #4CAF88;
+  color: #004AAD;
 }
 
 .nav-menu li a::after {
@@ -137,7 +165,7 @@ h2 {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #4CAF88;
+  background-color: #004AAD;
   transition: width 0.3s ease;
 }
 
@@ -152,14 +180,17 @@ h2 {
   background: none;
   border: none;
   font-size: 24px;
-  color: #1e5a9b;
+  color: #004AAD;
   cursor: pointer;
-  margin-left: 20px;
   transition: color 0.3s ease;
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 999;
 }
 
 .mobile-nav-toggle:hover {
-  color: #4CAF88;
+  color: #004AAD;
 }
 
 .mobile-nav-toggle i {
@@ -173,8 +204,8 @@ h2 {
 #hero {
   width: 100%;
   height: 100vh;
-  background: linear-gradient(135deg, #4CAF88 0%, #2E7D5E 50%, #1a4d3a 100%);
-  background-image: url('../img/home.png');
+  background: linear-gradient(135deg, #004AAD 0%, #003d8a 50%, #002d66 100%);
+  background-image: url('../img/home.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -252,7 +283,7 @@ h2 {
 
 .btn-hero:hover {
   background: #fff;
-  color: #2E7D5E;
+  color: #004AAD;
   transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
@@ -322,12 +353,12 @@ h2 {
 }
 
 .company-title {
-  color: #4CAF88;
+  color: #004AAD;
   font-size: 24px;
   font-weight: 600;
   display: inline-block;
   padding: 10px 30px;
-  border: 2px solid #4CAF88;
+  border: 2px solid #004AAD;
   border-radius: 30px;
   background: transparent;
   text-transform: uppercase;
@@ -370,7 +401,7 @@ h2 {
 }
 
 .stat-card-blue {
-  background: linear-gradient(135deg, #1e5a9b 0%, #2874b8 100%);
+  background: linear-gradient(135deg, #004AAD 0%, #003580 100%);
   color: #fff;
 }
 
@@ -388,7 +419,7 @@ h2 {
 }
 
 .stat-number {
-  font-size: 56px;
+  font-size: 72px;
   font-weight: 700;
   margin-bottom: 15px;
 }
@@ -454,7 +485,7 @@ h2 {
 }
 
 #footer .copyright strong {
-  color: #4CAF88;
+  color: #004AAD;
 }
 
 /*--------------------------------------------------------------
@@ -475,7 +506,25 @@ h2 {
   }
 
   #nav-menu-container {
-    display: none;
+    display: none !important;
+  }
+
+  body.mobile-nav-active #nav-menu-container {
+    display: block !important;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 998;
+  }
+
+  body.mobile-nav-active .nav-menu {
+    display: flex !important;
+    flex-direction: column;
+    gap: 15px;
   }
 
   .mobile-nav-toggle {
@@ -484,11 +533,16 @@ h2 {
 
   #hero {
     margin-top: 70px;
+    background-image: url('../img/home-mobile.png');
   }
 
   .hero-content h1 {
     font-size: 40px;
     margin-bottom: 40px;
+  }
+
+  .btn-hero {
+    margin-bottom: 60px;
   }
 
   .hero-footer {
@@ -514,6 +568,7 @@ h2 {
 
   .stat-cards-container {
     margin-top: 40px;
+    gap: 25px;
   }
 
   .stat-card {
@@ -528,6 +583,10 @@ h2 {
   .stat-label,
   .stat-label-large {
     font-size: 16px;
+  }
+
+  .info-cards-container {
+    gap: 20px;
   }
 
   .info-title {
@@ -565,8 +624,7 @@ h2 {
   }
 
   .stat-cards-container {
-    margin-top: 30px;
-  }
+    margin-top: 30px;    gap: 25px;  }
 
   .stat-card {
     padding: 20px;
