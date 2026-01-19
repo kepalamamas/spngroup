@@ -165,23 +165,6 @@
 
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
-
-  <script>
-    // Mobile nav toggle  
-    const mobileNavToggle = document.getElementById('mobile-nav-toggle');
-    const navMenuLinks = document.querySelectorAll('.nav-menu a');
-    
-    mobileNavToggle.addEventListener('click', function () {
-      document.body.classList.toggle('mobile-nav-active');
-    });
-    
-    // Close mobile menu when a link is clicked
-    navMenuLinks.forEach(link => {
-      link.addEventListener('click', function () {
-        document.body.classList.remove('mobile-nav-active');
-      });
-    });
-  </script>
 </body>
 
 </html>
