@@ -218,6 +218,12 @@ body.mobile-nav-active .nav-menu li a {
   overflow: hidden;
 }
 
+@media (max-width: 1024px) {
+  #hero {
+    background-attachment: scroll;
+  }
+}
+
 #hero::before {
   content: '';
   position: absolute;
@@ -532,7 +538,8 @@ body.mobile-nav-active .nav-menu li a {
 
   #hero {
     margin-top: 70px;
-    background-image: url('../img/home-mobile.png');
+    background-image: url('../img/home-mobile.png') !important;
+    background-attachment: scroll !important;
   }
 
   .hero-content h1 {
