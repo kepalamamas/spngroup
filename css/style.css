@@ -676,14 +676,14 @@ body.mobile-nav-active .nav-menu li a {
 --------------------------------------------------------------*/
 
 .area-img-container {
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .area-img {
-  max-width: 80%;
+  max-width: 100%;
 }
 
 .area-text {
@@ -993,4 +993,12 @@ body.mobile-nav-active .nav-menu li a {
   .info-subtitle {
     font-size: 11px;
   }
+}
+
+.logo-link {
+  max-width: 125px;
+}
+
+.logo-img {
+  width: 100%;
 }
