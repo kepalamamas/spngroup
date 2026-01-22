@@ -521,7 +521,6 @@ body.mobile-nav-active .nav-menu li a {
 .carousel-items-wrapper {
   position: relative;
   min-height: 280px;
-  margin-bottom: 40px;
   overflow: hidden;
 }
 
@@ -575,6 +574,7 @@ body.mobile-nav-active .nav-menu li a {
   gap: 15px;
   justify-content: flex-start;
   flex-wrap: wrap;
+  margin-top: 10px;
 }
 
 .carousel-item-thumb {
@@ -584,8 +584,8 @@ body.mobile-nav-active .nav-menu li a {
   overflow: hidden;
   border: 3px solid transparent;
   transition: all 0.3s ease;
-  width: 90px;
-  height: 90px;
+  width: 150px;
+  height: 150px;
   flex-shrink: 0;
   background: #f0f0f0;
 }
@@ -627,6 +627,7 @@ body.mobile-nav-active .nav-menu li a {
 }
 
 .carousel-item-thumb.active {
+  display: none;
   border-color: #004AAD;
   box-shadow: 0 4px 12px rgba(0, 74, 173, 0.3);
 }
@@ -641,8 +642,6 @@ body.mobile-nav-active .nav-menu li a {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px;
-  background: #ffffff;
   min-height: 500px;
 }
 
@@ -698,6 +697,154 @@ body.mobile-nav-active .nav-menu li a {
   text-align: center;
   max-width: 900px;
   margin: 0 auto;
+}
+
+/* Mobile Services Carousel */
+.services-mobile {
+  display: none;
+}
+
+.services-desktop {
+  display: flex;
+}
+
+.services-carousel-mobile {
+  padding: 20px 0;
+}
+
+.mobile-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #f0f0f0;
+}
+
+.mobile-service-card {
+  position: absolute;
+  width: 100%;
+  height: 400px;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+  display: none;
+}
+
+.mobile-service-card.active {
+  position: relative;
+  opacity: 1;
+  left: 0;
+  pointer-events: auto;
+  transition: opacity 0.6s ease;
+  display: block;
+}
+
+.mobile-service-card.prev {
+  display: none;
+}
+
+.mobile-service-card.next {
+  display: none;
+}
+
+.mobile-card-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+.mobile-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  transition: background 0.5s ease;
+}
+
+.mobile-card-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  z-index: 3;
+}
+
+.mobile-card-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.mobile-card-subtitle {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 600;
+  margin-bottom: 15px;
+  opacity: 0;
+  transition: opacity 0.5s ease 0.1s;
+  display: block !important;
+}
+
+.mobile-card-description {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  margin: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease 0.2s;
+  display: block !important;
+}
+
+/* Active state for mobile carousel cards */
+.mobile-service-card.active .mobile-card-overlay {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.mobile-service-card.active .mobile-card-subtitle,
+.mobile-service-card.active .mobile-card-description {
+  opacity: 1;
+}
+
+/* Carousel Navigation Dots */
+.mobile-carousel-dots {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(0, 74, 173, 0.3);
+  border: 1px solid #004AAD;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.carousel-dot.active {
+  background: #004AAD;
+  transform: scale(1.2);
 }
 
 
@@ -944,6 +1091,38 @@ body.mobile-nav-active .nav-menu li a {
     padding: 20px 10px;
     text-align: center;
   }
+
+  /* Mobile Carousel Styles */
+  .services-desktop {
+    display: none !important;
+  }
+
+  .services-mobile {
+    display: block !important;
+  }
+
+  .mobile-carousel-wrapper {
+    height: 350px;
+  }
+
+  .mobile-service-card {
+    height: 350px;
+  }
+
+  .mobile-card-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .mobile-card-subtitle {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+
+  .mobile-card-description {
+    font-size: 12px;
+    line-height: 1.5;
+  }
 }
 
 @media (max-width: 480px) {
@@ -992,6 +1171,33 @@ body.mobile-nav-active .nav-menu li a {
 
   .info-subtitle {
     font-size: 11px;
+  }
+
+  .mobile-carousel-wrapper {
+    height: 300px;
+  }
+
+  .mobile-service-card {
+    height: 300px;
+  }
+
+  .mobile-card-content {
+    padding: 30px 20px;
+  }
+
+  .mobile-card-title {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+
+  .mobile-card-subtitle {
+    font-size: 11px;
+    margin-bottom: 8px;
+  }
+
+  .mobile-card-description {
+    font-size: 10px;
+    line-height: 1.4;
   }
 }
 

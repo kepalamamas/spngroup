@@ -162,61 +162,120 @@
           </div>
         </div>
 
-        <!-- Services Carousel -->
-        <div class="row g-0 align-items-center">
+        <!-- Desktop View - Services Carousel -->
+        <div class="align-items-center services-content-left services-desktop">
           <!-- Left Side - Thumbnails and Content -->
-          <div class="col-lg-6 services-content-left">
-            <!-- Carousel Thumbnails at Bottom Left -->
-            <div class="carousel-thumbnails-container">
-              <div class="carousel-item-thumb active" data-index="0">
-                <img src="img/loco.png" alt="Loco">
-                <div class="thumb-overlay">
-                  <span class="thumb-label">Loco</span>
+          <div class="row g-0">
+            <div class="col-lg-4">
+              <!-- Carousel Items Content -->
+              <div class="carousel-items-wrapper">
+                <!-- Item 0: Loco -->
+                <div class="carousel-item active" data-index="0">
+                  <h2 class="service-item-title">Loco</h2>
+                  <p class="service-item-subtitle">Fuel Transfer at Supply Point</p>
+                  <p class="service-item-description">
+                    A fuel delivery method where the transfer and handover of fuel take place at the seller's designated
+                    supply location, and ownership and responsibility are transferred to the buyer at the point of
+                    delivery.
+                  </p>
+                </div>
+
+                <!-- Item 1: Franco -->
+                <div class="carousel-item" data-index="1">
+                  <h2 class="service-item-title">Franco</h2>
+                  <p class="service-item-subtitle">Delivery to Client's Storage</p>
+                  <p class="service-item-description">
+                    A delivery method where the seller is fully responsible for transporting and delivering the fuel up
+                    to
+                    the client's storage facility, and ownership and risk are transferred to the buyer after the fuel is
+                    received at the client's storage.
+                  </p>
+                </div>
+
+                <!-- Item 2: Truck to Ship -->
+                <div class="carousel-item" data-index="2">
+                  <h2 class="service-item-title">Truck to Ship</h2>
+                  <p class="service-item-subtitle">Truck-Based Fuel Transfer</p>
+                  <p class="service-item-description">
+                    Truck-based fuel transfer method enabling efficient logistics and flexible delivery schedules,
+                    ensuring reliable fuel supply chain management and on-time delivery.
+                  </p>
                 </div>
               </div>
-              <div class="carousel-item-thumb" data-index="1">
-                <img src="img/operational.png" alt="Franco">
-                <div class="thumb-overlay">
-                  <span class="thumb-label">Franco</span>
+
+              <!-- Carousel Thumbnails at Bottom Left -->
+              <div class="carousel-thumbnails-container">
+                <div class="carousel-item-thumb active" data-index="0">
+                  <img src="img/loco.png" alt="Loco">
+                  <div class="thumb-overlay">
+                    <span class="thumb-label">Loco</span>
+                  </div>
                 </div>
-              </div>
-              <div class="carousel-item-thumb" data-index="2">
-                <img src="img/trucktoship.png" alt="Truck to Ship">
-                <div class="thumb-overlay">
-                  <span class="thumb-label">Truck to Ship</span>
+                <div class="carousel-item-thumb" data-index="1">
+                  <img src="img/operational.png" alt="Franco">
+                  <div class="thumb-overlay">
+                    <span class="thumb-label">Franco</span>
+                  </div>
+                </div>
+                <div class="carousel-item-thumb" data-index="2">
+                  <img src="img/trucktoship.png" alt="Truck to Ship">
+                  <div class="thumb-overlay">
+                    <span class="thumb-label">Truck to Ship</span>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <!-- Carousel Items Content -->
-            <div class="carousel-items-wrapper">
-              <!-- Item 0: Loco -->
-              <div class="carousel-item active" data-index="0">
-                <h2 class="service-item-title">Loco</h2>
-                <p class="service-item-subtitle">Fuel Transfer at Supply Point</p>
-                <p class="service-item-description">
+            <!-- Right Side - Main Carousel Image -->
+            <div class="col-lg-8 services-carousel-right">
+              <div class="carousel-main-wrapper">
+                <img class="carousel-main-image" src="img/loco.png" alt="Service Display">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile View - Services Carousel -->
+        <div class="services-carousel-mobile services-mobile">
+          <div class="mobile-carousel-wrapper">
+            <!-- Card 1: Loco -->
+            <div class="mobile-service-card" data-index="0">
+              <div class="mobile-card-background" style="background-image: url('img/loco.png')"></div>
+              <div class="mobile-card-overlay"></div>
+              <div class="mobile-card-content">
+                <h2 class="mobile-card-title">Loco</h2>
+                <p class="mobile-card-subtitle">Fuel Transfer at Supply Point</p>
+                <p class="mobile-card-description">
                   A fuel delivery method where the transfer and handover of fuel take place at the seller's designated
                   supply location, and ownership and responsibility are transferred to the buyer at the point of
                   delivery.
                 </p>
               </div>
+            </div>
 
-              <!-- Item 1: Franco -->
-              <div class="carousel-item" data-index="1">
-                <h2 class="service-item-title">Franco</h2>
-                <p class="service-item-subtitle">Delivery to Client's Storage</p>
-                <p class="service-item-description">
-                  A delivery method where the seller is fully responsible for transporting and delivering the fuel up to
-                  the client's storage facility, and ownership and risk are transferred to the buyer after the fuel is
+            <!-- Card 2: Franco -->
+            <div class="mobile-service-card" data-index="1">
+              <div class="mobile-card-background" style="background-image: url('img/operational.png')"></div>
+              <div class="mobile-card-overlay"></div>
+              <div class="mobile-card-content">
+                <h2 class="mobile-card-title">Franco</h2>
+                <p class="mobile-card-subtitle">Delivery to Client's Storage</p>
+                <p class="mobile-card-description">
+                  A delivery method where the seller is fully responsible for transporting and delivering the fuel up
+                  to the client's storage facility, and ownership and risk are transferred to the buyer after the fuel is
                   received at the client's storage.
                 </p>
               </div>
+            </div>
 
-              <!-- Item 2: Truck to Ship -->
-              <div class="carousel-item" data-index="2">
-                <h2 class="service-item-title">Truck to Ship</h2>
-                <p class="service-item-subtitle">Truck-Based Fuel Transfer</p>
-                <p class="service-item-description">
+            <!-- Card 3: Truck to Ship -->
+            <div class="mobile-service-card" data-index="2">
+              <div class="mobile-card-background" style="background-image: url('img/trucktoship.png')"></div>
+              <div class="mobile-card-overlay"></div>
+              <div class="mobile-card-content">
+                <h2 class="mobile-card-title">Truck to Ship</h2>
+                <p class="mobile-card-subtitle">Truck-Based Fuel Transfer</p>
+                <p class="mobile-card-description">
                   Truck-based fuel transfer method enabling efficient logistics and flexible delivery schedules,
                   ensuring reliable fuel supply chain management and on-time delivery.
                 </p>
@@ -224,11 +283,11 @@
             </div>
           </div>
 
-          <!-- Right Side - Main Carousel Image -->
-          <div class="col-lg-6 services-carousel-right">
-            <div class="carousel-main-wrapper">
-              <img class="carousel-main-image" src="img/loco.png" alt="Service Display">
-            </div>
+          <!-- Carousel Navigation Dots -->
+          <div class="mobile-carousel-dots">
+            <button class="carousel-dot active" data-index="0"></button>
+            <button class="carousel-dot" data-index="1"></button>
+            <button class="carousel-dot" data-index="2"></button>
           </div>
         </div>
       </div>
@@ -299,10 +358,12 @@
             <!-- Column 3 -->
             <div class="col-md-6 footer-column">
               <h4 class="footer-column-title">Corporate Information</h4>
-              <p class="footer-address">Pantai Indah Kapuk 2, Rukan Mega Kuningan Blok D Nomor 30, RMKD-030 RT. 000 RW. 000, Salembaran Jati, Kosambi, Kab Tangerang, Banten.</p>
+              <p class="footer-address">Pantai Indah Kapuk 2, Rukan Mega Kuningan Blok D Nomor 30, RMKD-030 RT. 000 RW.
+                000, Salembaran Jati, Kosambi, Kab Tangerang, Banten.</p>
               <p class="footer-contact">
                 <i class="fa fa-phone"></i>
-                <a href="tel:+6281212864666">0812 1286 4666</a> | <a href="tel:+6285283816403">0852 8381 6403 (Arief)</a>
+                <a href="tel:+6281212864666">0812 1286 4666</a> | <a href="tel:+6285283816403">0852 8381 6403
+                  (Arief)</a>
               </p>
               <p class="footer-email">
                 <i class="fa fa-envelope"></i>

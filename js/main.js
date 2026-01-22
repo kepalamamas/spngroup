@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Update main image
       carouselMainImage.src = serviceItems[currentIndex].image;
       carouselMainImage.classList.remove('fade-out');
-    }, 150);
+    }, 0);
 
     // Restart auto-slide timer
     resetAutoSlide();
@@ -122,7 +122,79 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Start auto-slide on page load
+  // Mobile Carousel Functionality
+  const mobileServiceCards = document.querySelectorAll('.mobile-service-card');
+  const carouselDots = document.querySelectorAll('.carousel-dot');
+  let mobileCurrentIndex = 0;
+  let mobileAutoSlideTimer = null;
+
+  function updateMobileCarousel(newIndex) {
+    // Validate index
+    if (newIndex >= mobileServiceCards.length) {
+      newIndex = 0;
+    }
+    if (newIndex < 0) {
+      newIndex = mobileServiceCards.length - 1;
+    }
+
+    // Remove active class from current card
+    mobileServiceCards[mobileCurrentIndex].classList.remove('active');
+
+    // Add animation class based on direction
+    if (newIndex > mobileCurrentIndex) {
+      mobileServiceCards[mobileCurrentIndex].classList.add('prev');
+    } else {
+      mobileServiceCards[mobileCurrentIndex].classList.add('next');
+    }
+
+    // Remove active class from current dot
+    carouselDots[mobileCurrentIndex].classList.remove('active');
+
+    // Update after a brief delay to ensure smooth transition
+    setTimeout(() => {
+      // Remove animation classes from old card
+      mobileServiceCards[(mobileCurrentIndex + mobileServiceCards.length) % mobileServiceCards.length].classList.remove('prev', 'next');
+
+      // Update index
+      mobileCurrentIndex = newIndex;
+
+      // Add active class to new card and dot
+      mobileServiceCards[mobileCurrentIndex].classList.add('active');
+      carouselDots[mobileCurrentIndex].classList.add('active');
+    }, 10);
+
+    // Restart auto-slide timer
+    resetMobileAutoSlide();
+  }
+
+  function mobileAutoSlide() {
+    const nextIndex = (mobileCurrentIndex + 1) % mobileServiceCards.length;
+    updateMobileCarousel(nextIndex);
+  }
+
+  function resetMobileAutoSlide() {
+    // Clear existing timer
+    if (mobileAutoSlideTimer) {
+      clearInterval(mobileAutoSlideTimer);
+    }
+    // Start new timer - auto-slide every 4 seconds
+    mobileAutoSlideTimer = setInterval(mobileAutoSlide, 4000);
+  }
+
+  // Dot click handlers
+  carouselDots.forEach((dot, index) => {
+    dot.addEventListener('click', function() {
+      updateMobileCarousel(index);
+    });
+  });
+
+  // Initialize mobile carousel with first card active
+  if (mobileServiceCards.length > 0) {
+    mobileServiceCards[0].classList.add('active');
+    resetMobileAutoSlide();
+  }
+
+  // Start auto-slide on page load (desktop carousel)
   resetAutoSlide();
 
 });
