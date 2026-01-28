@@ -204,13 +204,8 @@ body.mobile-nav-active .nav-menu li a {
 #hero {
   width: 100%;
   height: 100vh;
-  background: linear-gradient(135deg, #004AAD 0%, #003d8a 50%, #002d66 100%);
-  background-image: url('../img/home.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
   display: flex;
-  align-items: end;
+  align-items: center;
   justify-content: center;
   position: relative;
   margin-top: 80px;
@@ -218,13 +213,23 @@ body.mobile-nav-active .nav-menu li a {
   overflow: hidden;
 }
 
-@media (max-width: 1024px) {
-  #hero {
-    background-attachment: scroll;
-  }
+.hero-container {
+  width: 90%;
+  max-width: 1200px;
+  height: 80%;
+  background-image: url('../img/home.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  overflow: hidden;
 }
 
-#hero::before {
+/* .hero-container::before {
   content: '';
   position: absolute;
   width: 200%;
@@ -232,7 +237,8 @@ body.mobile-nav-active .nav-menu li a {
   background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M0,0 L50,50 L100,0" stroke="rgba(255,255,255,0.05)" fill="none"/></pattern></defs><rect fill="url(%23pattern)" width="1200" height="600"/></svg>');
   animation: moveBackground 20s ease-in-out infinite;
   opacity: 0.5;
-}
+  z-index: 1;
+} */
 
 @keyframes moveBackground {
 
@@ -252,7 +258,11 @@ body.mobile-nav-active .nav-menu li a {
   text-align: center;
   color: #fff;
   padding: 40px;
-  width: 100vw;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .hero-content h1 {
@@ -278,7 +288,7 @@ body.mobile-nav-active .nav-menu li a {
 }
 
 .hero-buttons {
-  margin-bottom: 80px;
+  margin-bottom: 20px;
 }
 
 .btn-hero {
@@ -304,15 +314,13 @@ body.mobile-nav-active .nav-menu li a {
 }
 
 .hero-footer {
-  position: absolute;
-  bottom: 40px;
+  position: relative;
+  z-index: 3;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 40px;
-  left: 50%;
-  transform: translateX(-50%);
+  padding: 0 10px 10px 10px;
 }
 
 .btn-contact,
@@ -1019,7 +1027,6 @@ body.mobile-nav-active .nav-menu li a {
   #hero {
     margin-top: 70px;
     background-image: url('../img/home-mobile.png') !important;
-    background-attachment: scroll !important;
   }
 
   .hero-content h1 {
