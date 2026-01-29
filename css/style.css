@@ -257,7 +257,7 @@ body.mobile-nav-active .nav-menu li a {
   z-index: 2;
   text-align: center;
   color: #fff;
-  padding: 40px;
+  padding: 20px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -292,8 +292,10 @@ body.mobile-nav-active .nav-menu li a {
 }
 
 .btn-hero {
-  background: rgba(255, 255, 255, 0.2);
-  border: 2px solid #fff;
+  /* background: rgba(255, 255, 255, 0.2); */
+  background: none;
+  /* border: 2px solid #fff; */
+  border: none;
   color: #fff;
   padding: 14px 40px;
   font-size: 16px;
@@ -307,10 +309,35 @@ body.mobile-nav-active .nav-menu li a {
 }
 
 .btn-hero:hover {
-  background: #fff;
-  color: #004AAD;
+  background: rgba(255, 255, 255, 0.2);
+  color: black;
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); */
+}
+
+.hero-scroll-arrow {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  animation: bounceDown 2s infinite;
+}
+
+.hero-scroll-arrow i {
+  font-size: 28px;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+@keyframes bounceDown {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(12px);
+  }
+  60% {
+    transform: translateY(6px);
+  }
 }
 
 .hero-footer {
@@ -588,7 +615,7 @@ body.mobile-nav-active .nav-menu li a {
 .carousel-item-thumb {
   position: relative;
   cursor: pointer;
-  border-radius: 6px;
+  border-radius: 10px;
   overflow: hidden;
   border: 3px solid transparent;
   transition: all 0.3s ease;
@@ -1033,10 +1060,6 @@ body.mobile-nav-active .nav-menu li a {
     margin-bottom: 40px;
   }
 
-  .btn-hero {
-    margin-bottom: 60px;
-  }
-
   .hero-footer {
     flex-direction: column;
     gap: 15px;
@@ -1213,4 +1236,592 @@ body.mobile-nav-active .nav-menu li a {
 
 .logo-img {
   width: 100%;
+}
+
+/*--------------------------------------------------------------
+# Business Model Section
+--------------------------------------------------------------*/
+.business-model-section {
+  padding: 80px 0;
+  background: #ffffff;
+}
+
+.bm-wrapper {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0 0 0;
+}
+
+.bm-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: auto;
+  gap: 50px;
+  grid-template-areas: "depot transport customer";
+  align-items: center;
+  position: relative;
+}
+
+.bm-grid2 {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 50px;
+  grid-template-areas: "equip storage";
+  align-items: center;
+  position: relative;
+}
+
+.bm-depot {
+  grid-area: depot;
+}
+
+.bm-transport {
+  grid-area: transport;
+}
+
+.bm-customer {
+  grid-area: customer;
+}
+
+.bm-equip {
+  grid-area: equip;
+}
+
+.bm-storage {
+  grid-area: storage;
+}
+
+.bm-card {
+  background: #f5f5f5;
+  border-radius: 14px;
+  padding: 35px 25px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  margin-bottom: 40px;
+}
+
+.bm-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 48px rgba(0, 74, 173, 0.15);
+}
+
+.bm-card img {
+  width: 10rem;
+  max-width: 50%;
+  object-fit: contain;
+  margin-bottom: 18px;
+  transition: transform 0.3s ease;
+}
+
+.bm-card:hover img {
+  transform: scale(1.08);
+}
+
+.bm-card h4 {
+  font-size: 18px;
+  color: #004AAD;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-weight: 700;
+}
+
+.bm-sub {
+  font-size: 12px;
+  color: rgba(26, 26, 26, 0.75);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+
+.bm-tag {
+  display: inline-block;
+  margin-top: 8px;
+  background: #f0f6ff;
+  color: #004AAD;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.bm-tag.small {
+  font-size: 11px;
+  padding: 5px 8px;
+}
+
+.bm-connectors {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+@media (max-width: 992px) {
+  /* .bm-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "depot transport"
+      "customer customer";
+    gap: 24px;
+  }
+
+  
+  .bm-grid2 {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "equip storage";
+    gap: 24px;
+  } */
+
+  .bm-card {
+    min-height: 240px;
+    padding: 28px 20px;
+  }
+
+  .bm-card img {
+    width: 95px;
+    height: 95px;
+    margin-bottom: 15px;
+  }
+
+  .bm-card h4 {
+    font-size: 14px;
+  }
+
+  .bm-sub {
+    font-size: 10px;
+  }
+
+  .bm-tag {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .bm-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "depot"
+      "transport"
+      "customer";
+    gap: 20px;
+  }
+
+  .bm-grid2 {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "equip"
+      "storage";
+    gap: 20px;
+  }
+
+  .bm-card {
+    min-height: 220px;
+    padding: 24px 18px;
+  }
+
+  .bm-card img {
+    width: 85px;
+    height: 85px;
+    margin-bottom: 12px;
+  }
+
+  .bm-card h4 {
+    font-size: 14px;
+  }
+
+  .bm-sub {
+    font-size: 10px;
+  }
+
+  .bm-tag {
+    font-size: 15px;
+  }
+
+  .bm-connectors {
+    display: none;
+  }
+}
+
+/*--------------------------------------------------------------
+# Market Segmentation Section
+--------------------------------------------------------------*/
+.market-segmentation-section {
+  padding: 80px 0;
+  background: #ffffff;
+}
+
+.ms-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.ms-carousel-wrapper {
+  width: 100%;
+  overflow: hidden;
+  padding: 40px 20px;
+}
+
+.ms-carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  perspective: 1000px;
+  scroll-behavior: smooth;
+}
+
+.ms-card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.ms-card-image {
+  width: 220px;
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease;
+}
+
+.ms-card:hover .ms-card-image {
+  transform: scale(1.05);
+}
+
+.ms-card-content {
+  padding: 10px;
+  text-align: center;
+  transition: all 0.6s ease;
+}
+
+.ms-sector {
+  font-size: 12px;
+  color: #004AAD;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.ms-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #004AAD;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+/* Scale and height animations for carousel positioning */
+.ms-card {
+  width: 160px;
+  height: 200px;
+  opacity: 0.6;
+}
+
+.ms-card .ms-card-image {
+  width: 160px;
+  height: 140px;
+}
+
+/* Adjacent cards (medium) */
+.ms-card-2,
+.ms-card-4 {
+  width: 180px;
+  height: 260px;
+  opacity: 0.8;
+  transform: scale(1.05);
+}
+
+.ms-card-2 .ms-card-image,
+.ms-card-4 .ms-card-image {
+  width: 180px;
+  height: 180px;
+}
+
+/* Center card (tallest) */
+.ms-card-center {
+  width: 220px;
+  height: 320px;
+  opacity: 1;
+  transform: scale(1.15);
+  z-index: 10;
+  box-shadow: 0 10px 30px rgba(0, 74, 173, 0.12);
+}
+
+.ms-card-center .ms-card-image {
+  width: 220px;
+  height: 220px;
+}
+
+.ms-card-center .ms-title {
+  font-size: 20px;
+}
+
+@media (max-width: 768px) {
+  .market-segmentation-section {
+    padding: 60px 0;
+  }
+
+  .ms-header {
+    margin-bottom: 40px;
+  }
+
+  .ms-carousel-wrapper {
+    padding: 30px 10px;
+  }
+
+  .ms-carousel {
+    gap: 12px;
+  }
+
+  .ms-card {
+    width: 130px;
+    height: 160px;
+  }
+
+  .ms-card .ms-card-image {
+    width: 130px;
+    height: 110px;
+  }
+
+  .ms-card-2,
+  .ms-card-4 {
+    width: 145px;
+    height: 210px;
+  }
+
+  .ms-card-2 .ms-card-image,
+  .ms-card-4 .ms-card-image {
+    width: 145px;
+    height: 145px;
+  }
+
+  .ms-card-center {
+    width: 170px;
+    height: 260px;
+  }
+
+  .ms-card-center .ms-card-image {
+    width: 170px;
+    height: 170px;
+  }
+
+  .ms-card-content {
+    padding: 12px;
+  }
+
+  .ms-sector {
+    font-size: 10px;
+  }
+
+  .ms-title {
+    font-size: 14px;
+  }
+
+  .ms-card-center .ms-title {
+    font-size: 16px;
+  }
+}
+
+/*--------------------------------------------------------------
+# Specification Section
+--------------------------------------------------------------*/
+.specification-section {
+  padding: 80px 0;
+  background: #ffffff;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 50px;
+}
+
+.spec-background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../img/bg-spec.png');
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.specification-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.spec-header {
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+.spec-header .services-title-header {
+  display: inline-block;
+}
+
+.spec-table-wrapper {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.spec-table thead {
+  position: sticky;
+  top: 0;
+}
+
+.spec-table thead tr {
+  background: linear-gradient(135deg, #004AAD 0%, #003580 100%);
+  color: #ffffff;
+}
+
+.spec-table thead th {
+  padding: 18px 16px;
+  font-weight: 700;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 13px;
+}
+
+.spec-table tbody tr {
+  border-bottom: 1px solid #e8e8e8;
+  transition: background-color 0.3s ease;
+}
+
+.spec-table tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+.spec-table tbody tr:nth-child(even) {
+  background-color: #f5f5f5;
+}
+
+.spec-table tbody td {
+  padding: 16px;
+  color: #333333;
+}
+
+.spec-table tbody td:first-child {
+  font-weight: 500;
+  color: #004AAD;
+}
+
+.spec-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 400px;
+}
+
+.spec-image img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  margin-top: 40px;
+}
+
+@media (max-width: 992px) {
+  .spec-background {
+    opacity: 0.08;
+  }
+
+  .specification-section {
+    padding: 60px 0;
+  }
+
+  .spec-table-wrapper {
+    max-height: 500px;
+  }
+
+  .spec-table thead th {
+    padding: 14px 12px;
+    font-size: 12px;
+  }
+
+  .spec-table tbody td {
+    padding: 12px;
+    font-size: 13px;
+  }
+
+  .spec-image {
+    min-height: 300px;
+    margin-top: 30px;
+  }
+
+  .spec-image img {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .specification-section .container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .spec-background {
+    width: 100%;
+    opacity: 0.06;
+  }
+
+  .spec-header {
+    margin-bottom: 30px;
+  }
+
+  .spec-header .services-title-header {
+    font-size: 20px;
+    padding: 8px 20px;
+  }
+
+  .spec-table-wrapper {
+    max-height: 400px;
+    margin-bottom: 20px;
+  }
+
+  .spec-table thead th {
+    padding: 12px 10px;
+    font-size: 11px;
+  }
+
+  .spec-table tbody td {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .spec-image {
+    min-height: 250px;
+    margin-top: 20px;
+  }
 }

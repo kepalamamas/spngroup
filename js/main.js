@@ -197,5 +197,61 @@ document.addEventListener('DOMContentLoaded', function() {
   // Start auto-slide on page load (desktop carousel)
   resetAutoSlide();
 
+  // Market Segmentation Carousel
+  const msCarousel = document.querySelector('.ms-carousel');
+  const msCards = document.querySelectorAll('.ms-card');
+  let msCurrentIndex = 2; // Start with center card (Mining)
+  let msAutoScrollTimer = null;
+
+  function updateMSCarousel() {
+    msCards.forEach((card, index) => {
+      card.classList.remove('ms-card-1', 'ms-card-2', 'ms-card-center', 'ms-card-4', 'ms-card-5');
+      
+      let newIndex = (index - msCurrentIndex + 5) % 5;
+      
+      if (newIndex === 0) card.classList.add('ms-card-1');
+      else if (newIndex === 1) card.classList.add('ms-card-2');
+      else if (newIndex === 2) card.classList.add('ms-card-center');
+      else if (newIndex === 3) card.classList.add('ms-card-4');
+      else if (newIndex === 4) card.classList.add('ms-card-5');
+    });
+  }
+
+  function scrollMSNext() {
+    msCurrentIndex = (msCurrentIndex + 1) % 5;
+    updateMSCarousel();
+  }
+
+  function scrollMSPrev() {
+    msCurrentIndex = (msCurrentIndex - 1 + 5) % 5;
+    updateMSCarousel();
+  }
+
+  function resetMSAutoScroll() {
+    clearInterval(msAutoScrollTimer);
+    msAutoScrollTimer = setInterval(scrollMSNext, 2000);
+  }
+
+  // Allow manual scroll (pause auto-scroll on interaction)
+  if (msCarousel) {
+    msCarousel.addEventListener('mouseenter', () => {
+      clearInterval(msAutoScrollTimer);
+    });
+
+    msCarousel.addEventListener('mouseleave', () => {
+      resetMSAutoScroll();
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') scrollMSPrev();
+      if (e.key === 'ArrowRight') scrollMSNext();
+    });
+  }
+
+  // Initialize MS carousel
+  updateMSCarousel();
+  resetMSAutoScroll();
+
 });
 
