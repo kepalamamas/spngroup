@@ -67,6 +67,13 @@ h2 {
   right: 0;
   transition: all 0.5s;
   z-index: 997;
+  /* start transparent so hero can fill behind it */
+  background: transparent;
+  box-shadow: none;
+}
+
+/* background & styles once scrolled */
+#header.scrolled {
   background: #ffffff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -107,6 +114,7 @@ h2 {
 #nav-menu-container {
   display: flex;
   align-items: center;
+  margin-left: auto;
 }
 
 body.mobile-nav-active #nav-menu-container {
@@ -146,12 +154,18 @@ body.mobile-nav-active .nav-menu li a {
 }
 
 .nav-menu li a {
+  /* default color white when header is over hero */
   color: #004AAD;
   font-weight: 600;
   font-size: 14px;
   transition: color 0.3s ease;
   position: relative;
   padding-bottom: 5px;
+}
+
+#header.scrolled .nav-menu li a {
+  /* dark links once header has a white background */
+  color: #004AAD;
 }
 
 .nav-menu li a:hover {
@@ -208,19 +222,18 @@ body.mobile-nav-active .nav-menu li a {
   align-items: center;
   justify-content: center;
   position: relative;
-  margin-top: 80px;
+  /* allow hero to take full viewport behind transparent nav */
+  margin-top: 0;
   padding-bottom: 80px;
   overflow: hidden;
 }
 
 .hero-container {
-  width: 90%;
-  max-width: 1200px;
-  height: 80%;
-  background-image: url('../img/home.jpg');
+  width: 100%;
+  height: 100%;
+  background-image: url('../img/revision/home.jpg');
   background-size: cover;
   background-position: center;
-  border-radius: 15px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -228,17 +241,6 @@ body.mobile-nav-active .nav-menu li a {
   justify-content: flex-end;
   overflow: hidden;
 }
-
-/* .hero-container::before {
-  content: '';
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M0,0 L50,50 L100,0" stroke="rgba(255,255,255,0.05)" fill="none"/></pattern></defs><rect fill="url(%23pattern)" width="1200" height="600"/></svg>');
-  animation: moveBackground 20s ease-in-out infinite;
-  opacity: 0.5;
-  z-index: 1;
-} */
 
 @keyframes moveBackground {
 
@@ -265,11 +267,32 @@ body.mobile-nav-active .nav-menu li a {
   justify-content: flex-end;
 }
 
+/* left justify content on larger screens */
+@media (min-width: 992px) {
+  .hero-content {
+    align-items: flex-start;
+    text-align: left;
+    padding-left: 60px;
+    padding-right: 20px;
+    justify-content: center;
+  }
+}
+
 .hero-content h1 {
-  font-size: 64px;
+  font-size: 80px;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 0.1;
   margin-bottom: 60px;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  animation: fadeInUp 0.8s ease;
+}
+
+.hero-content h3 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 40px;
   color: #fff;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   animation: fadeInUp 0.8s ease;
@@ -294,8 +317,7 @@ body.mobile-nav-active .nav-menu li a {
 .btn-hero {
   /* background: rgba(255, 255, 255, 0.2); */
   background: none;
-  /* border: 2px solid #fff; */
-  border: none;
+  border: 2px solid #fff;
   color: #fff;
   padding: 14px 40px;
   font-size: 16px;
@@ -1065,6 +1087,11 @@ body.mobile-nav-active .nav-menu li a {
   .hero-content h1 {
     font-size: 40px;
     margin-bottom: 40px;
+  }
+
+  .hero-content h3 {
+    font-size: 15px;
+    margin-bottom: 20px;
   }
 
   .hero-footer {

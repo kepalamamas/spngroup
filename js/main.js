@@ -198,6 +198,19 @@ document.addEventListener('DOMContentLoaded', function() {
   resetAutoSlide();
 
   // Market Segmentation Carousel
+
+  // make header transparent at top and colored when scrolling
+  const header = document.getElementById('header');
+  function onScroll() {
+    if (window.scrollY > 30) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  }
+  window.addEventListener('scroll', onScroll);
+  // invoke once in case page is loaded not at top
+  onScroll();
   const msCarousel = document.querySelector('.ms-carousel');
   const msCards = document.querySelectorAll('.ms-card');
   let msCurrentIndex = 2; // Start with center card (Mining)
