@@ -26,8 +26,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('../img/revision/A1.png') center center / cover no-repeat fixed;
-  opacity: 0.1;
+  background: url('../img/revision/home.jpg') center center / cover no-repeat fixed;
   z-index: -1;
 }
 
@@ -240,17 +239,12 @@ body.mobile-nav-active .nav-menu li a {
   position: relative;
   /* allow hero to take full viewport behind transparent nav */
   margin-top: 0;
-  padding-bottom: 80px;
   overflow: hidden;
 }
 
 .hero-container {
   width: 100%;
   height: 100%;
-  background-image: url('../img/revision/home.jpg');
-  background-size: cover;
-  background-position: center;
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -281,6 +275,7 @@ body.mobile-nav-active .nav-menu li a {
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
+  transition: opacity 0.3s ease; /* fade on scroll */
 }
 
 /* left justify content on larger screens */
@@ -300,7 +295,6 @@ body.mobile-nav-active .nav-menu li a {
   line-height: 0.1;
   margin-bottom: 60px;
   color: #fff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   animation: fadeInUp 0.8s ease;
 }
 
@@ -310,7 +304,6 @@ body.mobile-nav-active .nav-menu li a {
   line-height: 1;
   margin-bottom: 40px;
   color: #fff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   animation: fadeInUp 0.8s ease;
 }
 
@@ -459,6 +452,7 @@ body.mobile-nav-active .nav-menu li a {
 --------------------------------------------------------------*/
 
 .company-section {
+  color: #fff;
   padding: 80px 0;
 }
 
@@ -470,20 +464,21 @@ body.mobile-nav-active .nav-menu li a {
   background: transparent;
   text-transform: uppercase;
   letter-spacing: 1px;
+  color: #fff;
 }
 
 .company-description {
   font-size: 16px;
   line-height: 1.8;
-  color: rgba(26, 26, 26, 0.8);
   text-align: left;
   max-width: 900px;
   margin: 0 auto;
+  color: #fff;
 }
 
 .company-header-section {
   padding-bottom: 40px;
-  border-bottom: 2px solid #333333;
+  border-bottom: 2px solid #fff;
 }
 
 /*--------------------------------------------------------------
@@ -521,7 +516,7 @@ body.mobile-nav-active .nav-menu li a {
 .stat-label {
   font-size: 18px;
   font-weight: 600;
-  color: #004AAD;
+  color: #fff;
   text-transform: uppercase;
 }
 
@@ -1005,10 +1000,9 @@ body.mobile-nav-active .nav-menu li a {
 --------------------------------------------------------------*/
 
 #footer {
-  background: rgb(249, 249, 249);
-  margin-top: 60px;
   padding: 0;
   color: #333333;
+  background: #fff;
 }
 
 .footer-logo-section {
@@ -1122,6 +1116,7 @@ body.mobile-nav-active .nav-menu li a {
   padding: 20px 0;
   font-size: 14px;
   font-weight: 500;
+  border-radius: 15px 15px 0 0;
 }
 
 .footer-copyright-bar p {
@@ -1276,7 +1271,7 @@ body.mobile-nav-active .nav-menu li a {
   }
 
   .read-more-col {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -1705,70 +1700,85 @@ body.mobile-nav-active .nav-menu li a {
   font-size: 20px;
 }
 
-@media (max-width: 768px) {
-  .market-segmentation-section {
-    padding: 60px 0;
-  }
+/*----------------------------------------------------------------
+# Supported industries layout (static cards)
+----------------------------------------------------------------*/
+.supported-industries-section .si-title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  position: relative;
+}
+.supported-industries-section .si-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #004AAD;
+  margin: 8px auto 0;
+}
 
-  .ms-header {
-    margin-bottom: 40px;
-  }
+.si-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
 
-  .ms-carousel-wrapper {
-    padding: 30px 10px;
-  }
+.si-card {
+  width: 200px;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
 
-  .ms-carousel {
-    gap: 12px;
-  }
+.si-label {
+  width: 100%;
+  /* gradient fade from transparent at top to dark at bottom */
+  background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.7));
+  color: #fff;
+  text-align: center;
+  padding: 10px 5px;
+  font-size: 16px;
+  font-weight: 600;
+  position: relative;
+  z-index: 1; /* keep behind details once pulled */
+  transition: transform 0.3s ease;
+}
 
-  .ms-card {
-    width: 130px;
-    height: 160px;
-  }
+/* details panel hidden at bottom */
+.si-details {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.85);
+  color: #fff;
+  padding: 20px 10px;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  font-size: 14px;
+  line-height: 1.6;
+  z-index: 2;
+}
 
-  .ms-card .ms-card-image {
-    width: 130px;
-    height: 110px;
-  }
+/* hover/active animation to pull up label and reveal details */
+.si-card:hover .si-label,
+.si-card:focus-within .si-label {
+  transform: translateY(-100px); /* move further up */
+}
 
-  .ms-card-2,
-  .ms-card-4 {
-    width: 145px;
-    height: 210px;
-  }
-
-  .ms-card-2 .ms-card-image,
-  .ms-card-4 .ms-card-image {
-    width: 145px;
-    height: 145px;
-  }
-
-  .ms-card-center {
-    width: 170px;
-    height: 260px;
-  }
-
-  .ms-card-center .ms-card-image {
-    width: 170px;
-    height: 170px;
-  }
-
-  .ms-card-content {
-    padding: 12px;
-  }
-
-  .ms-sector {
-    font-size: 10px;
-  }
-
-  .ms-title {
-    font-size: 14px;
-  }
-
-  .ms-card-center .ms-title {
-    font-size: 16px;
-  }
+.si-card:hover .si-details,
+.si-card:focus-within .si-details {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 /*--------------------------------------------------------------
