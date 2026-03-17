@@ -18,7 +18,6 @@ body {
   z-index: 0;
 }
 
-/* fixed background image with reduced opacity */
 body::before {
   content: '';
   position: fixed;
@@ -453,8 +452,12 @@ body.mobile-nav-active .nav-menu li a {
 --------------------------------------------------------------*/
 
 .company-section {
-  color: #fff;
+  background-color: #fff;
   padding: 80px 0;
+}
+
+.company-header {
+  margin-bottom: 20px;
 }
 
 .company-title {
@@ -463,9 +466,24 @@ body.mobile-nav-active .nav-menu li a {
   display: inline-block;
   border-radius: 30px;
   background: transparent;
-  text-transform: uppercase;
   letter-spacing: 1px;
-  color: #fff;
+  width: 100%;
+}
+
+.fuel {
+  color: #1f3bb9;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
 }
 
 .company-description {
@@ -474,12 +492,15 @@ body.mobile-nav-active .nav-menu li a {
   text-align: left;
   max-width: 900px;
   margin: 0 auto;
-  color: #fff;
 }
 
 .company-header-section {
   padding-bottom: 40px;
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid #7ca2d5;
+}
+
+.stat-cards {
+  border-bottom: 2px solid #7ca2d5;
 }
 
 /*--------------------------------------------------------------
@@ -512,12 +533,12 @@ body.mobile-nav-active .nav-menu li a {
 .stat-number {
   font-size: 72px;
   font-weight: 700;
+  color: #004aad;
 }
 
 .stat-label {
   font-size: 18px;
   font-weight: 600;
-  color: #fff;
   text-transform: uppercase;
 }
 
@@ -563,9 +584,11 @@ body.mobile-nav-active .nav-menu li a {
 --------------------------------------------------------------*/
 
 .services-section {
+  margin-top: -10px;
   padding: 0;
   max-width: 100vw;
   overflow-x: hidden;
+  background-color: #fff;
 }
 
 /* simplified card layout for services */
@@ -635,6 +658,12 @@ body.mobile-nav-active .nav-menu li a {
   .service-card {
     height: 300px;
     width: 100%;
+    border-radius: 5px;
+  }
+
+  .service-col {
+    padding: 10vw !important;
+    background-color: #fff;
   }
 
   .service-title {
@@ -826,6 +855,12 @@ body.mobile-nav-active .nav-menu li a {
 # Customer Area
 --------------------------------------------------------------*/
 
+.area-section {
+  margin-top: -5px;
+  padding-top: 20px;
+  background-color: #fff;
+}
+
 .area-img-container {
   width: 100%;
   display: flex;
@@ -835,6 +870,41 @@ body.mobile-nav-active .nav-menu li a {
 
 .area-img {
   width: 100%;
+}
+
+.area-list-container {
+  max-width: 900px;
+  margin: 0 auto 0 auto;
+  padding: 20px;
+}
+
+.area-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.area-list li {
+  position: relative;
+  padding-left: 26px;
+  font-size: 14px;
+  color: rgba(26, 26, 26, 0.85);
+  line-height: 1.6;
+  font-size: small;
+}
+
+.area-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.75em;
+  width: 10px;
+  height: 10px;
+  background: #ff7a00;
+  border-radius: 2px;
 }
 
 .area-text {
@@ -849,6 +919,122 @@ body.mobile-nav-active .nav-menu li a {
   text-align: center;
   max-width: 900px;
   margin: 0 auto;
+}
+
+/*--------------------------------------------------------------
+# History Section
+--------------------------------------------------------------*/
+.history-section {
+  padding: 60px 0 40px;
+  background: #1f3bb9;
+  color: #ffffff;
+}
+
+.history-section .si-title {
+  color: #ffffff;
+}
+
+.history-section .si-title-comment {
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 40px;
+}
+
+.history-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.history-card {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 24px;
+  border-radius: 16px;
+  background-size: cover;
+  background-position: center;
+  color: #ffffff;
+  text-decoration: none;
+  overflow: hidden;
+  min-height: 240px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.history-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.history-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.55);
+  transition: filter 0.3s ease;
+}
+
+.history-card:hover::before {
+  filter: brightness(0.45);
+}
+
+.history-card-label {
+  position: relative;
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  z-index: 1;
+}
+
+.history-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 80%);
+  z-index: 1;
+}
+
+.history-card:after {
+  content: '\2192';
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 18px;
+  opacity: 0.75;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+.history-card:hover:after {
+  opacity: 1;
+}
+
+@media (max-width: 992px) {
+  .history-grid {
+    gap: 16px;
+  }
+
+  .history-card {
+    min-height: 220px;
+  }
+}
+
+@media (max-width: 576px) {
+  .history-grid {
+    gap: 12px;
+  }
+
+  .history-card {
+    min-height: 200px;
+    padding: 20px;
+  }
+
+  .history-card-label {
+    font-size: 32px;
+  }
 }
 
 /* Mobile Services Carousel */
@@ -1005,101 +1191,83 @@ body.mobile-nav-active .nav-menu li a {
 --------------------------------------------------------------*/
 
 #footer {
-  padding: 0;
-  color: #333333;
-  background: #fff;
+  padding: 40px 0 0;
+  background: #1f3bb9;
+  color: #ffffff;
 }
 
-.footer-logo-section {
+.footer-top {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: flex-start;
+  padding-bottom: 40px;
 }
 
-.footer-logo {
-  font-size: 32px;
-  font-weight: 700;
-  color: #004AAD;
-  margin: 0;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+.footer-brand {
+  max-width: 460px;
 }
 
-.footer-column {
-  padding-top: 30px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 10px;
-}
-
-.footer-column-title {
-  font-size: 14px;
-  font-weight: 700;
-  color: #004AAD;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 20px;
-  margin-top: 0;
-}
-
-.footer-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-links li {
-  margin-bottom: 12px;
-}
-
-.footer-links a {
-  color: #004AAD;
-  font-size: 14px;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.footer-links a:hover {
-  color: #003a7a;
-  text-decoration: underline;
+.footer-logo-img {
+  width: 50%;
+  height: auto;
+  margin-bottom: 18px;
 }
 
 .footer-address {
-  font-size: 13px;
-  color: #004AAD;
-  line-height: 1.6;
-  margin-bottom: 15px;
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.85);
 }
 
-.qr {
-  width: 80px;
-  height: 80px;
+.footer-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  flex: 1;
+  margin-top: 20px;
 }
 
-.footer-link {
-  font-size: 13px;
-  color: #004AAD;
-  margin-bottom: 10px;
+.footer-contact-item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
-.footer-link i {
-  color: #004AAD;
-  width: 16px;
+.footer-contact-label {
+  font-weight: 700;
+  width: 120px;
+  color: rgba(255, 255, 255, 0.9);
 }
 
-.footer-link a {
-  color: #004AAD;
+.footer-contact-value {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.footer-contact-value a {
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
-  transition: color 0.3s ease;
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.55);
 }
 
-.footer-link a:hover {
-  color: #003a7a;
-  text-decoration: underline;
+.footer-contact-value a:hover {
+  color: #ffffff;
+  border-bottom-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Legacy footer styles (unused, kept for safety) */
+.footer-column,
+.footer-links,
+.footer-links li,
+.footer-links a,
+.footer-link,
+.footer-link i {
+  display: none;
 }
 
 .footer-copyright-bar {
-  background: #004AAD;
+  background: #1f3bb9;
   color: #ffffff;
   text-align: center;
   padding: 20px 0;
@@ -1114,6 +1282,10 @@ body.mobile-nav-active .nav-menu li a {
 }
 
 @media (max-width: 768px) {
+  body::before {
+    background: url('../img/mobile/kapalhome.jpg') center center / cover no-repeat fixed;
+  }
+
   #header {
     height: 70px;
   }
@@ -1189,6 +1361,7 @@ body.mobile-nav-active .nav-menu li a {
 
   .company-description {
     font-size: 14px;
+    text-align: center;
   }
 
   .area-description {
@@ -1203,10 +1376,6 @@ body.mobile-nav-active .nav-menu li a {
   .stat-card {
     padding: 30px;
     min-height: 200px;
-  }
-
-  .stat-number {
-    font-size: 40px;
   }
 
   .stat-label,
@@ -1289,8 +1458,9 @@ body.mobile-nav-active .nav-menu li a {
   }
 
   .company-title {
-    font-size: 18px;
+    font-size: 1.8rem;
     padding: 8px 20px;
+    margin-bottom: 0;
   }
 
   .stat-cards-container {
@@ -1301,11 +1471,16 @@ body.mobile-nav-active .nav-menu li a {
   .stat-card {
     padding: 20px;
     min-height: 150px;
+    text-align: center;
   }
 
   .stat-label,
   .stat-label-large {
     font-size: 14px;
+  }
+
+  .stat-number {
+    font-size: 4rem;
   }
 
   .info-title {
@@ -1352,365 +1527,34 @@ body.mobile-nav-active .nav-menu li a {
   width: 100%;
 }
 
-/*--------------------------------------------------------------
-# Business Model Section
---------------------------------------------------------------*/
-.business-model-section {
-  padding: 80px 0;
-  background: #ffffff;
-}
-
-.bm-wrapper {
-  position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px 0 0 0;
-}
-
-.bm-grid {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: auto;
-  gap: 50px;
-  grid-template-areas: "depot transport customer";
-  align-items: center;
-  position: relative;
-}
-
-.bm-grid2 {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  grid-template-rows: auto;
-  gap: 50px;
-  grid-template-areas: "equip storage";
-  align-items: center;
-  position: relative;
-}
-
-.bm-depot {
-  grid-area: depot;
-}
-
-.bm-transport {
-  grid-area: transport;
-}
-
-.bm-customer {
-  grid-area: customer;
-}
-
-.bm-equip {
-  grid-area: equip;
-}
-
-.bm-storage {
-  grid-area: storage;
-}
-
-.bm-card {
-  background: #f5f5f5;
-  border-radius: 14px;
-  padding: 35px 15px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  text-align: center;
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 1;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-  margin-bottom: 40px;
-}
-
-.bm-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 48px rgba(0, 74, 173, 0.15);
-}
-
-.bm-card img {
-  width: 10rem;
-  max-width: 50%;
-  object-fit: contain;
-  margin-bottom: 18px;
-  transition: transform 0.3s ease;
-}
-
-.bm-card:hover img {
-  transform: scale(1.08);
-}
-
-.bm-card h4 {
-  font-size: 18px;
-  color: #004AAD;
-  margin-bottom: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  font-weight: 700;
-}
-
-.bm-sub {
-  font-size: 12px;
-  color: rgba(26, 26, 26, 0.75);
-  margin-bottom: 12px;
-  line-height: 1.5;
-}
-
-.bm-tag {
-  display: inline-block;
-  margin-top: 8px;
-  background: #f0f6ff;
-  color: #004AAD;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-weight: 700;
-  font-size: 18px;
-}
-
-.bm-tag.small {
-  font-size: 11px;
-  padding: 5px 8px;
-}
-
-.bm-connectors {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  top: 0;
-  left: 0;
-  z-index: 0;
-}
-
-@media (max-width: 992px) {
-  /* .bm-grid {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-areas:
-      "depot transport"
-      "customer customer";
-    gap: 24px;
-  }
-
-  
-  .bm-grid2 {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-areas: "equip storage";
-    gap: 24px;
-  } */
-
-  .bm-card {
-    min-height: 240px;
-    padding: 28px 10px;
-  }
-
-  .bm-card img {
-    width: 8rem;
-    height: 8rem;
-    margin-bottom: 15px;
-    max-width: 100%;
-  }
-
-  .bm-card h4 {
-    font-size: 14px;
-  }
-
-  .bm-sub {
-    font-size: 10px;
-  }
-
-  .bm-tag {
-    font-size: 12px;
-  }
-}
-
-@media (max-width: 576px) {
-  .bm-grid {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "depot"
-      "transport"
-      "customer";
-    gap: 20px;
-  }
-
-  .bm-grid2 {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "equip"
-      "storage";
-    gap: 20px;
-  }
-
-  .bm-card {
-    min-height: 220px;
-    padding: 24px 18px;
-  }
-
-  .bm-card img {
-    width: 10rem;
-    height: 10rem;
-    margin-bottom: 12px;
-    max-width: 50%;
-  }
-
-  .bm-card h4 {
-    font-size: 14px;
-  }
-
-  .bm-sub {
-    font-size: 10px;
-  }
-
-  .bm-tag {
-    font-size: 15px;
-  }
-
-  .bm-connectors {
-    display: none;
-  }
-}
-
-/*--------------------------------------------------------------
-# Market Segmentation Section
---------------------------------------------------------------*/
-.market-segmentation-section {
-  padding: 80px 0;
-  background: #ffffff;
-}
-
-.ms-header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.ms-carousel-wrapper {
-  width: 100%;
-  overflow: hidden;
-  padding: 40px 20px;
-}
-
-.ms-carousel {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  perspective: 1000px;
-  scroll-behavior: smooth;
-}
-
-.ms-card {
-  background: #ffffff;
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid #e0e0e0;
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  flex-shrink: 0;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-}
-
-.ms-card-image {
-  width: 220px;
-  height: 180px;
-  background-size: cover;
-  background-position: center;
-  transition: transform 0.6s ease;
-}
-
-.ms-card:hover .ms-card-image {
-  transform: scale(1.05);
-}
-
-.ms-card-content {
-  padding: 10px;
-  text-align: center;
-  transition: all 0.6s ease;
-}
-
-.ms-sector {
-  font-size: 12px;
-  color: #004AAD;
-  font-weight: 600;
-  margin: 0 0 8px 0;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.ms-title {
-  font-size: 18px;
-  font-weight: 700;
-  color: #004AAD;
-  margin: 0;
-  text-transform: capitalize;
-}
-
-/* Scale and height animations for carousel positioning */
-.ms-card {
-  width: 160px;
-  height: 200px;
-  opacity: 0.6;
-}
-
-.ms-card .ms-card-image {
-  width: 160px;
-  height: 140px;
-}
-
-/* Adjacent cards (medium) */
-.ms-card-2,
-.ms-card-4 {
-  width: 180px;
-  height: 260px;
-  opacity: 0.8;
-  transform: scale(1.05);
-}
-
-.ms-card-2 .ms-card-image,
-.ms-card-4 .ms-card-image {
-  width: 180px;
-  height: 180px;
-}
-
-/* Center card (tallest) */
-.ms-card-center {
-  width: 220px;
-  height: 320px;
-  opacity: 1;
-  transform: scale(1.15);
-  z-index: 10;
-  box-shadow: 0 10px 30px rgba(0, 74, 173, 0.12);
-}
-
-.ms-card-center .ms-card-image {
-  width: 220px;
-  height: 220px;
-}
-
-.ms-card-center .ms-title {
-  font-size: 20px;
-}
-
 /*----------------------------------------------------------------
 # Supported industries layout (static cards)
 ----------------------------------------------------------------*/
-.supported-industries-section .si-title {
+.supported-industries-section {
+  padding-top: 20px;
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: #fff;
+}
+
+.si-title {
   text-align: center;
   font-size: 32px;
   font-weight: 700;
   margin-bottom: 40px;
   position: relative;
+  color: #004AAD;
 }
 
-.supported-industries-section .si-title::after {
-  content: '';
-  display: block;
-  width: 20vw;
-  height: 4px;
-  background: black;
-  margin: 8px auto 0;
+.si-title-comment {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 300;
+  margin-bottom: 40px;
+  margin-top: -30px;
+  position: relative;
+  color: #004AAD;
+  padding: 10px;
 }
 
 .si-cards {
@@ -1821,7 +1665,7 @@ body.mobile-nav-active .nav-menu li a {
 }
 
 
-/* hover/active animation to pull up label and reveal details */
+/* hover/active animation to pull up label and reveal details (desktop) */
 .si-card:hover .si-label,
 .si-card:focus-within .si-label {
   transform: translateY(-100px);
@@ -1837,184 +1681,129 @@ body.mobile-nav-active .nav-menu li a {
 }
 
 /*--------------------------------------------------------------
-# Specification Section
+# Supported Industries Mobile Carousel
 --------------------------------------------------------------*/
-.specification-section {
-  padding: 80px 0;
-  background: #ffffff;
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 50px;
+
+.si-carousel-btn {
+  display: none;
 }
 
-.spec-background {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('../img/bg-spec.png');
-  background-size: cover;
-  background-position: center;
-  z-index: 0;
-}
-
-.specification-section .container {
-  position: relative;
-  z-index: 1;
-}
-
-.spec-header {
-  text-align: left;
-  margin-bottom: 40px;
-}
-
-.spec-header .services-title-header {
-  display: inline-block;
-}
-
-.spec-table-wrapper {
-  background: #ffffff;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-  max-height: 600px;
-  overflow-y: auto;
-}
-
-.spec-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 14px;
-}
-
-.spec-table thead {
-  position: sticky;
-  top: 0;
-}
-
-.spec-table thead tr {
-  background: linear-gradient(135deg, #004AAD 0%, #003580 100%);
-  color: #ffffff;
-}
-
-.spec-table thead th {
-  padding: 18px 16px;
-  font-weight: 700;
-  text-align: left;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-size: 13px;
-}
-
-.spec-table tbody tr {
-  border-bottom: 1px solid #e8e8e8;
-  transition: background-color 0.3s ease;
-}
-
-.spec-table tbody tr:hover {
-  background-color: #f9f9f9;
-}
-
-.spec-table tbody tr:nth-child(even) {
-  background-color: #f5f5f5;
-}
-
-.spec-table tbody td {
-  padding: 16px;
-  color: #333333;
-}
-
-.spec-table tbody td:first-child {
-  font-weight: 500;
-  color: #004AAD;
-}
-
-.spec-image {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  min-height: 400px;
-}
-
-.spec-image img {
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
-  margin-top: 40px;
-}
-
-@media (max-width: 992px) {
-  .spec-background {
-    opacity: 0.08;
-  }
-
-  .specification-section {
-    padding: 60px 0;
-  }
-
-  .spec-table-wrapper {
-    max-height: 500px;
-  }
-
-  .spec-table thead th {
-    padding: 14px 12px;
-    font-size: 12px;
-  }
-
-  .spec-table tbody td {
-    padding: 12px;
-    font-size: 13px;
-  }
-
-  .spec-image {
-    min-height: 300px;
-    margin-top: 30px;
-  }
-
-  .spec-image img {
-    margin-top: 0;
-  }
-}
-
+/* Mobile carousel container with buttons */
 @media (max-width: 768px) {
-  .specification-section .container {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .spec-background {
+  .si-carousel-container {
+    position: relative;
     width: 100%;
-    opacity: 0.06;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px;
   }
 
-  .spec-header {
-    margin-bottom: 30px;
+  .si-carousel-btn {
+    background: #004AAD;
+    color: #fff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    z-index: 10;
   }
 
-  .spec-header .services-title-header {
-    font-size: 20px;
-    padding: 8px 20px;
+  .si-carousel-btn:hover {
+    background: #003580;
+    transform: scale(1.1);
   }
 
-  .spec-table-wrapper {
-    max-height: 400px;
-    margin-bottom: 20px;
+  .si-carousel-btn i {
+    font-size: 16px;
   }
 
-  .spec-table thead th {
-    padding: 12px 10px;
-    font-size: 11px;
+  .si-carousel-prev,
+  .si-carousel-next {
+    position: relative;
   }
 
-  .spec-table tbody td {
-    padding: 10px;
-    font-size: 12px;
+  /* Mobile carousel styles for si-cards - hide grid and show carousel */
+  .si-cards {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex: 1;
   }
 
-  .spec-image {
-    min-height: 250px;
-    margin-top: 20px;
+  .si-card {
+    position: absolute;
+    width: 280px;
+    max-width: 90%;
+    height: 380px;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.5s ease;
+    pointer-events: none;
+    left: 50%;
+    top: 50%;
+    margin-left: -140px;
+    transform: translateX(100%) translateY(-50%);
+  }
+
+  .si-card.active {
+    opacity: 1;
+    transform: translateX(0) translateY(-50%);
+    pointer-events: auto;
+    position: absolute;
+    left: 40vw;
+    margin-left: -140px;
+  }
+
+  .si-card.prev {
+    transform: translateX(-100%) translateY(-50%);
+  }
+
+  /* Show details on active card for mobile */
+  .si-card.active .si-label {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+
+  .si-card.active .si-details {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  /* Override desktop hover/focus on mobile - keep details hidden on non-active cards */
+  .si-card:hover .si-label,
+  .si-card:focus-within .si-label {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .si-card:hover .si-details,
+  .si-card:focus-within .si-details {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  /* But show for active card */
+  .si-card.active:hover .si-label,
+  .si-card.active:focus-within .si-label {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+
+  .si-card.active:hover .si-details,
+  .si-card.active:focus-within .si-details {
+    transform: translateY(0);
+    opacity: 1;
   }
 }

@@ -223,5 +223,134 @@ document.addEventListener('DOMContentLoaded', function() {
   // invoke once in case page is loaded not at top
   onScroll();
 
+  // Supported Industries Mobile Carousel Functionality
+  const siCards = document.querySelectorAll('.si-card');
+  let siCurrentIndex = 0;
+  let siAutoSlideTimer = null;
+  let isMobileCarouselActive = false;
+
+  function updateSiCarousel(newIndex) {
+    if (siCards.length === 0) return;
+
+    // Validate index
+    if (newIndex >= siCards.length) {
+      newIndex = 0;
+    }
+    if (newIndex < 0) {
+      newIndex = siCards.length - 1;
+    }
+
+    // Get the old card before updating the index
+    const oldCard = siCards[siCurrentIndex];
+    if (!oldCard) return;
+
+    // Remove active class from current card
+    oldCard.classList.remove('active');
+
+    // Add animation class based on direction
+    if (newIndex > siCurrentIndex) {
+      oldCard.classList.add('prev');
+    } else {
+      oldCard.classList.add('next');
+    }
+
+    // Update index
+    siCurrentIndex = newIndex;
+
+    // Get the new card
+    const newCard = siCards[siCurrentIndex];
+    if (!newCard) return;
+
+    // Update after a brief delay for animation
+    setTimeout(() => {
+      if (oldCard) {
+        oldCard.classList.remove('prev', 'next');
+      }
+      newCard.classList.add('active');
+    }, 50);
+
+    // Restart auto-slide timer (only on mobile)
+    if (isMobileCarouselActive) {
+      resetSiAutoSlide();
+    }
+  }
+
+  function siAutoSlide() {
+    const nextIndex = (siCurrentIndex + 1) % siCards.length;
+    updateSiCarousel(nextIndex);
+  }
+
+  function resetSiAutoSlide() {
+    // Clear existing timer
+    if (siAutoSlideTimer) {
+      clearInterval(siAutoSlideTimer);
+    }
+    // Start new timer - auto-slide every 5 seconds
+    siAutoSlideTimer = setInterval(siAutoSlide, 5000);
+  }
+
+  function initializeSiCarousel() {
+    if (siCards.length === 0) return;
+
+    // Reset all cards
+    siCards.forEach(card => {
+      card.classList.remove('active', 'prev', 'next');
+    });
+
+    // Set first card as active
+    siCurrentIndex = 0;
+    siCards[0].classList.add('active');
+    isMobileCarouselActive = true;
+
+    // Start auto-slide
+    resetSiAutoSlide();
+  }
+
+  function disableSiCarousel() {
+    siCards.forEach(card => {
+      card.classList.remove('active', 'prev', 'next');
+    });
+    if (siAutoSlideTimer) {
+      clearInterval(siAutoSlideTimer);
+    }
+    isMobileCarouselActive = false;
+  }
+
+  // Prev/Next button handlers
+  const siPrevBtn = document.getElementById('siPrevBtn');
+  const siNextBtn = document.getElementById('siNextBtn');
+
+  if (siPrevBtn) {
+    siPrevBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      updateSiCarousel(siCurrentIndex - 1);
+    });
+  }
+
+  if (siNextBtn) {
+    siNextBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      updateSiCarousel(siCurrentIndex + 1);
+    });
+  }
+
+  // Initialize si carousel on load (only for mobile)
+  if (window.innerWidth <= 768) {
+    initializeSiCarousel();
+  }
+
+  // Re-initialize carousel on window resize
+  window.addEventListener('resize', function() {
+    if (window.innerWidth <= 768) {
+      if (!isMobileCarouselActive) {
+        initializeSiCarousel();
+      }
+    } else {
+      if (isMobileCarouselActive) {
+        disableSiCarousel();
+      }
+    }
+  });
+
 });
 
