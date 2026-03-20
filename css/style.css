@@ -2,6 +2,11 @@
 # General
 --------------------------------------------------------------*/
 
+@font-face {
+  font-family: 'codec-pro';
+  src: url(../font/codec-pro/CodecPro-Regular.ttf);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +17,7 @@ body {
   /* background will be added via pseudo-element to control opacity */
   background: none;
   color: #333333;
-  font-family: "Open Sans", sans-serif;
+  font-family: "codec-pro", "Open Sans", sans-serif;
   overflow-x: hidden;
   position: relative;
   z-index: 0;
@@ -21,6 +26,7 @@ body {
 body::before {
   content: '';
   position: fixed;
+  display: block;
   top: 0;
   left: 0;
   width: 100%;
@@ -55,7 +61,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Open Sans", sans-serif;
+  font-family: "codec-pro", "Open Sans", sans-serif;
   font-weight: 400;
   margin: 0 0 20px 0;
   padding: 0;
@@ -290,7 +296,7 @@ body.mobile-nav-active .nav-menu li a {
 }
 
 .hero-content h1 {
-  font-size: 80px;
+  font-size: 90px;
   font-weight: 700;
   line-height: 0.1;
   margin-bottom: 60px;
@@ -859,6 +865,7 @@ body.mobile-nav-active .nav-menu li a {
   margin-top: -5px;
   padding-top: 20px;
   background-color: #fff;
+  border-top: 1px solid #004AAD;
 }
 
 .area-img-container {
@@ -1329,7 +1336,13 @@ body.mobile-nav-active .nav-menu li a {
   }
 
   .hero-container {
-    height: 40%;
+    height: 100%;
+    padding-bottom: 80px;
+  }
+
+  .hero-content {
+    align-items: start;
+    text-align: left;
   }
 
   .hero-content h1 {
@@ -1338,8 +1351,9 @@ body.mobile-nav-active .nav-menu li a {
   }
 
   .hero-content h3 {
-    font-size: 15px;
+    font-size: 10px;
     margin-bottom: 20px;
+    font-weight: lighter;
   }
 
   .hero-footer {
@@ -1444,8 +1458,8 @@ body.mobile-nav-active .nav-menu li a {
   }
 
   .btn-hero {
-    padding: 10px 30px;
-    font-size: 14px;
+    padding: 10px 20px;
+    font-size: 10px;
   }
 
   .hero-footer {
@@ -1458,7 +1472,7 @@ body.mobile-nav-active .nav-menu li a {
   }
 
   .company-title {
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     padding: 8px 20px;
     margin-bottom: 0;
   }
@@ -1535,6 +1549,7 @@ body.mobile-nav-active .nav-menu li a {
   max-width: 100vw;
   overflow-x: hidden;
   background-color: #fff;
+  border-top: 1px solid #004AAD;
 }
 
 .si-title {
